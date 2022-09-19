@@ -114,10 +114,3 @@ Best achieved result:
             
                      /saved_files/plots/overcomplete_ae_contractive_reg/lof/
             
-            
-- Link to folder with preprocessed data:
-    https://drive.google.com/drive/folders/1_cbHpY6BoBWpO7HDuh6-n9ANXSZfZh-I?usp=sharing
-  
-- All folders from google drive need to be added to the folder
-
-              /saved_files/
