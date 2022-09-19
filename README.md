@@ -1,79 +1,123 @@
-### Домашнее задание №3 (5+3 баллов). Срок выполнения: до 04.11.21.
+# Autoencoder
 
-- Реализовать undercomplete autoencoder (h=100);
+## About The Project
 
-       Для запуска undercomplete autoencoder нужно в `configs/model_config.py`
-       установить параметр `cfg.autoencoder_type = AEType.undercomplete`, 
-       в `configs/train_config.py` установить параметр cfg.experiment_name = 'undercomplete_ae',
-       затем запустить файл `executor/executor.py`. Запустится валидация на лучшей эпохе, затем knn и lof, 
-       после чего продолжится обучение.
+1) Implementation of:
+
+       - undercomplete autoencoder,
+       - overcomplete sparse autoencoder,
+       - overcomplete contractive autoencoder.
+
+2) implementation of KNN for anomaly detection task,
+3) implementation of Local Outlier Factor (LOF) for anomaly detection task.
+
+
+## Getting Started
+
+1) Undercomplete Autoencoder;
+
+To run undercomplete autoencoder you need to:
+
+- go to `configs/model_config.py` file and set parameter `cfg.autoencoder_type = AEType.undercomplete`;
+
+- go to `configs/train_config.py` and set parameter cfg.experiment_name = 'undercomplete_ae',
+
+- then to run `executor/executor.py` file. 
+       
+As a result, there will be validation step on the best epoch, then knn and lof, after which the training will continue.
   
-        MSE, полученный после 100 эпох обучения:  0.6484451278855529.
+Best achieved result:
+
+        MSE after 100 training epochs:  0.6484451278855529.
   
-        KNN на тестовой выборке: 
-            лучший k = 100
-            лучший AP = 0.10504789744435714
-            лучший F1-score = 0.18622568824579536
-            precision-recall кривая и confusion matrix в папке `/saved_files/plots/undercomplete_ae/knn/`.
+        KNN on test set: 
+            the best k = 100
+            the best AP = 0.10504789744435714
+            the best F1-score = 0.18622568824579536
+            precision-recall curve and confusion matrix are in:
+            
+                     /saved_files/plots/undercomplete_ae/knn/
   
-        LOF на тестовой выборке: 
-            лучший k = 100
-            лучший AP = 0.10351424232852682
-            лучший F1-score = 0.1857264070896578
-            precision-recall кривая и confusion matrix в папке `/saved_files/plots/undercomplete_ae/lof/`.
+        LOF on test set: 
+            the best k = 100
+            the best AP = 0.10351424232852682
+            the best F1-score = 0.1857264070896578
+            precision-recall curve and confusion matrix are in:
+            
+                     /saved_files/plots/undercomplete_ae/lof/
 
-- Реализовать sparse autoencoder с h=3x32x32
-  
-        Для запуска overcomplete sparse autoencoder нужно в `configs/model_config.py`
-        cfg.autoencoder_type = AEType.overcomplete
-        cfg.reg_type = RegType.sparse, 
-        в `configs/train_config.py` установить параметр cfg.experiment_name = 'overcomplete_ae_sparse_reg',
-        затем запустить файл `executor/executor.py`.
+2) Overcomplete Sparse Autoencoder
 
-        MSE, полученный после 100 эпох обучения: 1.0028213624712787.
 
-        KNN на тестовой выборке: 
-            лучший k = 96
-            лучший AP = 0.1694976385837381
-            лучший F1-score = 0.23116438356164384
-            precision-recall кривая и confusion matrix в папке `/saved_files/plots/overcomplete_ae_sparse_reg/knn/`.
+To run overcomplete sparse autoencoder you need to:
 
-        LOF на тестовой выборке: 
-            лучший k = 96
-            лучший AP = 0.16261158079500324
-            лучший F1-score = 0.23076923076923075
-            precision-recall кривая и confusion matrix в папке `/saved_files/plots/overcomplete_ae_sparse_reg/lof/`.
+- go to `configs/model_config.py` file and set parameters `cfg.autoencoder_type = AEType.overcomplete`, cfg.reg_type = RegType.sparse;
 
-- Сравнить полученные результаты пунктов 1 и 2 с результатами домашних заданий 1 и 2
+- go to `configs/train_config.py` and set parameter cfg.experiment_name = 'overcomplete_ae_sparse_reg',
+
+- then to run `executor/executor.py` file. 
+       
+As a result, there will be validation step on the best epoch, then knn and lof, after which the training will continue.
+
+Best achieved result:
+
+        MSE after 100 training epochs: 1.0028213624712787.
+
+        KNN on test set: 
+            the best k = 96
+            the best AP = 0.1694976385837381
+            the best F1-score = 0.23116438356164384
+            precision-recall curve and confusion matrix are in:
+            
+                     /saved_files/plots/overcomplete_ae_sparse_reg/knn/
+
+        LOF on test set: 
+            the best k = 96
+            the best AP = 0.16261158079500324
+            the best F1-score = 0.23076923076923075
+            precision-recall curve and confusion matrix are in:
+            
+                     /saved_files/plots/overcomplete_ae_sparse_reg/lof/
+
+
+3) Overcomplete Contractive Autoencoder
+
+
+
+To run overcomplete sparse autoencoder you need to:
+
+- go to `configs/model_config.py` file and set parameters `cfg.autoencoder_type = AEType.overcomplete`, cfg.reg_type = RegType.contractive;
+
+- go to `configs/train_config.py` and set parameter cfg.experiment_name = 'overcomplete_ae_contractive_reg',
+
+- then to run `executor/executor.py` file. 
+       
+As a result, there will be validation step on the best epoch, then knn and lof, after which the training will continue.
+
+Best achieved result:
         
+        MSE after 100 training epochs: 0.6182704493358498.
 
-  Ссылка на табличку:
-  https://docs.google.com/spreadsheets/d/1T1pJvS-rOqyfDc7TYVEHM5i39yjV8Cb5UHZBYsxmULc/edit?usp=sharing
+        KNN on test set: 
+            the best k = 96
+            the best AP = 0.11054209234208252
+            the best F1-score = 0.19816009305276513
+            precision-recall curve and confusion matrix are in:
+            
+                     /saved_files/plots/overcomplete_ae_contractive_reg/knn/
 
-
-- (Дополнительно): Реализовать contractive autoencoder и выполнить те же шаги, что для остальных
-
-        Для запуска overcomplete contractive autoencoder нужно в `configs/model_config.py`
-        cfg.autoencoder_type = AEType.overcomplete
-        cfg.reg_type = RegType.contractive, 
-        в `configs/train_config.py` установить параметр cfg.experiment_name = 'overcomplete_ae_contractive_reg',
-        затем запустить файл `executor/executor.py`.
-        
-        MSE, полученный после 100 эпох обучения: 0.6182704493358498.
-
-        KNN на тестовой выборке: 
-            лучший k = 96
-            лучший AP = 0.11054209234208252
-            лучший F1-score = 0.19816009305276513
-            precision-recall кривая и confusion matrix в папке `/saved_files/plots/overcomplete_ae_contractive_reg/knn/`.
-
-        LOF на тестовой выборке: 
-            лучший k = 94
-            лучший AP = 0.10772625557194751
-            лучший F1-score = 0.1938424144217136
-            precision-recall кривая и confusion matrix в папке `/saved_files/plots/overcomplete_ae_contractive_reg/lof/`.
-
-- Ссылка на папку с пиклами:
+        LOF on test set: 
+            the best k = 94
+            the best AP = 0.10772625557194751
+            the best F1-score = 0.1938424144217136
+            precision-recall curve and confusion matrix are in:
+            
+                     /saved_files/plots/overcomplete_ae_contractive_reg/lof/
+            
+            
+- Link to folder with preprocessed data:
     https://drive.google.com/drive/folders/1_cbHpY6BoBWpO7HDuh6-n9ANXSZfZh-I?usp=sharing
   
-Все папки с гугл диска нужно добавить в папку `/saved_files/`.
+- All folders from google drive need to be added to the folder
+
+              /saved_files/
