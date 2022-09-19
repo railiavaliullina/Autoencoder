@@ -2,7 +2,7 @@
 
 ## About The Project
 
-1) Implementation of following models:
+1) Implementation of the following models:
 
        - undercomplete autoencoder,
        - overcomplete sparse autoencoder,
